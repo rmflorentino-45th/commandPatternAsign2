@@ -13,27 +13,51 @@ public class ViewerApp {
 
         System.out.println("1. Porch Lights");
         System.out.println("2. Thermostat");
-        System.out.println("3. Air Conditioning");
+        System.out.println("3. Music Player");
         System.out.println("4. Exit Program");
     
-        System.out.print("Select the appliance/device: ");
+        System.out.print("Select the appliance: ");
 
         Integer choice = input.nextInt();
 
             switch (choice) {
                 case 1: 
-                // Turn on & off the porch lights
-                System.out.println();
-                PorchLights lights = new PorchLights();
+                    System.out.println();
+                    boolean exitProgramLights = false;
+                    PorchLights lights = new PorchLights();
 
-                PowerOn powerOn = new PowerOn(lights);
-                System.out.println(powerOn.execute());
+                    do {
+                        System.out.println("1 - Turn on the lights");
+                        System.out.println("2 - Turn off the lights");
+                        System.out.println("3 - Exit the lights\n");
+                        System.out.print("Porch Lights selected. Select an option: ");
 
-                PowerOff powerOff = new PowerOff(lights);
-                System.out.println(powerOff.execute());
-                System.out.println();
-                break;
+                        int choiceLights = input.nextInt();
 
+                        switch (choiceLights) {
+                            case 1:
+                                PowerOn powerOn = new PowerOn(lights);
+                                System.out.println(powerOn.execute());
+                                continue;
+                        
+                            case 2:
+                                PowerOff powerOff = new PowerOff(lights);
+                                System.out.println(powerOff.execute());
+                                continue;
+
+                            case 3:
+                                exitProgramLights = true;
+                                break;
+
+                            default:
+                                System.out.println("Invalid choice. Please select an available option.");
+                                continue;
+                        }
+                        
+                    } while (!exitProgramLights);
+                        continue;
+
+                
                 case 2:
                     System.out.println();
                     boolean exitProgramThermos = false;
@@ -43,9 +67,8 @@ public class ViewerApp {
                         // Options for the thermostat
                         System.out.println("1 - Increase the temperature");
                         System.out.println("2 - Decrease the temperature");
-                        System.out.println("3 - Exit the Thermostat");
+                        System.out.println("3 - Exit the Thermostat\n");
                         System.out.print("Thermostat selected. Select an option: ");
-                        System.out.println();
 
                         int choiceThermos = input.nextInt();
 
@@ -75,8 +98,43 @@ public class ViewerApp {
 
     
                 case 3:
-                System.out.println();
+                    System.out.println();
 
+                    boolean exitProgramMusic = false;
+                    MusicPlayer sound = new MusicPlayer();
+
+                    do {
+                        // Options for the thermostat
+                        System.out.println("1 - Increase the volume");
+                        System.out.println("2 - Decrease the volume");
+                        System.out.println("3 - Exit the Music Player\n");
+
+                        System.out.print("Music player selected. Select an option: ");
+
+                        int choiceThermos = input.nextInt();
+
+                        switch (choiceThermos) {
+                            case 1:
+                                IncreaseVolume higherVol = new IncreaseVolume(sound);
+                                System.out.println(higherVol.execute());
+                                continue;
+
+                            case 2:
+                                DecreaseVolume lowerVol = new DecreaseVolume(sound);
+                                System.out.println(lowerVol.execute());
+                                continue;
+
+                            case 3:
+                                exitProgramMusic = true;
+                                break;
+                        
+                            default:
+                                System.out.println("Invalid choice. Please select an available option.");
+                                continue;
+                        }
+
+                    } while (!exitProgramMusic);
+                        continue;
 
                 case 4:
                     input.close();
@@ -89,8 +147,7 @@ public class ViewerApp {
                     continue;
             }
 
-        } while (!exitProgram);
+        } while (!exitProgram);   
 
-        
     }
 }
