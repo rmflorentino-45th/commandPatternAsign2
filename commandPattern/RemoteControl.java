@@ -15,4 +15,5 @@ public class RemoteControl {
     public void clickButton(){
         command.execute();
     }
+    
 }
