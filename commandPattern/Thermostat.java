@@ -8,7 +8,7 @@ public class Thermostat {
         return actualTemp;
     }
 
-    public void setTemp(Integer noOfLives) {
+    public void setTemp(Integer actualTemp) {
         this.actualTemp = actualTemp;
     }
 
