@@ -12,4 +12,4 @@ Your challenge is to apply a design pattern that provides a flexible and scalabl
 
 # UML
 
-image
+<img width="2658" height="1332" alt="Image" src="https://github.com/user-attachments/assets/e087459a-6b4a-49fa-9ce1-4700793e3f59" />
