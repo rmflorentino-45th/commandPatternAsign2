@@ -2,14 +2,15 @@ package commandPattern;
 
 public class PowerOn implements Command{
 
-    private Tv tv;
+    private PorchLights lights;
 
-    public PowerOn (Tv tv){
-        this.tv = tv;
+    public PowerOn (PorchLights lights){
+        this.lights = lights;
 
     }
+    
     @Override
     public String execute() {
-        return tv.switchOn();
+        return lights.switchOn();
     }
 }
